@@ -3,6 +3,9 @@
 namespace Meema\LaravelMeema;
 
 use Illuminate\Support\ServiceProvider;
+use League\Flysystem\Filesystem;
+use Meema\FlysystemMeema\MeemaAdapter;
+use Storage;
 
 class MeemaServiceProvider extends ServiceProvider
 {
@@ -11,11 +14,9 @@ class MeemaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('meema.php'),
-            ], 'config');
-        }
+        Storage::extend('meema', function ($app, $config) {
+            return new Filesystem(new MeemaAdapter($config));
+        });
     }
 
     /**
@@ -23,6 +24,6 @@ class MeemaServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'meema');
+        //
     }
 }

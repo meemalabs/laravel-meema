@@ -18,7 +18,8 @@
         }
     ],
     "require": {
-        "php": "^7.3"
+        "php": "^7.3",
+        "meema/flysystem-meema": "dev-master"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.3",
@@ -38,6 +39,12 @@
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../flysystem-meema"
+        }
+    ],
     "config": {
         "sort-packages": true
     },
