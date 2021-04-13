@@ -1,13 +1,15 @@
 {
     "name": "meema/laravel-meema",
-    "description": "This package a Laravel wrapper around the Meema API.",
+    "description": "🐏 A blazing-fast Laravel adapter for the official Meema API. An API each Laravel developer will feel welcome to.",
     "keywords": [
         "meema",
-        "cion",
         "laravel",
-        "laravel-meema"
+        "laravel-meema",
+        "media management",
+        "image editing",
+        "video converter"
     ],
-    "homepage": "https://github.com/meemaio/laravel-meema",
+    "homepage": "https://github.com/meemalabs/laravel-meema",
     "license": "MIT",
     "authors": [
         {
@@ -18,7 +20,8 @@
         }
     ],
     "require": {
-        "php": "^7.3"
+        "php": "^7.0|^8.0",
+        "meema/meema-client-php": "dev-main"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.3",
