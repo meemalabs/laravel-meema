@@ -1,15 +1,20 @@
 <?php
 
-namespace Meema\LaravelMeema\Contracts;
+namespace Meema\LaravelMeema\Models;
 
-interface MediaInterface
+use Meema\LaravelMeema\Contracts\MediaInterface;
+
+class Media implements MediaInterface
 {
     /**
      * List all media.
      *
      * @return array
      */
-    public static function all(): array;
+    public static function all(): array
+    {
+        return [];
+    }
 
     /**
      * Get specific media.
@@ -18,7 +23,10 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function get($ids = null): array;
+    public static function get($ids = null): array
+    {
+        return [];
+    }
 
     /**
      * Search for specific media.
@@ -27,7 +35,10 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function search($query): array;
+    public static function search($query): array
+    {
+        return [];
+    }
 
     /**
      * Get specific media.
@@ -36,7 +47,10 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function find($id): array;
+    public static function find($id): array
+    {
+        return [];
+    }
 
     /**
      * Create media.
@@ -45,7 +59,10 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function create($name): array;
+    public static function create($name): array
+    {
+        return [];
+    }
 
     /**
      * Update media.
@@ -55,7 +72,10 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function update($id, $name): array;
+    public static function update($id, $name): array
+    {
+        return [];
+    }
 
     /**
      * Delete a media.
@@ -64,7 +84,10 @@ interface MediaInterface
      *
      * @return null
      */
-    public static function delete($ids);
+    public static function delete($ids)
+    {
+        return;
+    }
 
     /**
      * Upload a media file.
@@ -73,7 +96,10 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function upload($path): array;
+    public static function upload($path): array
+    {
+        return [];
+    }
 
     /**
      * Archive a media.
@@ -82,7 +108,10 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function archive($ids): array;
+    public static function archive($ids): array
+    {
+        return [];
+    }
 
     /**
      * Unarchive a media.
@@ -91,7 +120,10 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function unarchive($ids): array;
+    public static function unarchive($ids): array
+    {
+        return [];
+    }
 
     /**
      * Make a media private.
@@ -100,7 +132,10 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function makePrivate($ids): array;
+    public static function makePrivate($ids): array
+    {
+        return [];
+    }
 
     /**
      * Make a media public.
@@ -109,7 +144,10 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function makePublic($ids): array;
+    public static function makePublic($ids): array
+    {
+        return [];
+    }
 
     /**
      * Duplicate a media.
@@ -118,5 +156,8 @@ interface MediaInterface
      *
      * @return array
      */
-    public static function duplicate($ids): array;
+    public static function duplicate($ids): array
+    {
+        return [];
+    }
 }

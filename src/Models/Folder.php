@@ -1,15 +1,20 @@
 <?php
 
-namespace Meema\LaravelMeema\Contracts;
+namespace Meema\LaravelMeema\Models;
 
-interface FolderInterface
+use Meema\LaravelMeema\Contracts\FolderInterface;
+
+class Folder implements FolderInterface
 {
     /**
      * List all folders.
      *
      * @return array
      */
-    public static function all(): array;
+    public static function all(): array
+    {
+        return [];
+    }
 
     /**
      * Get specific folders.
@@ -18,7 +23,10 @@ interface FolderInterface
      *
      * @return array
      */
-    public static function get($id = null): array;
+    public static function get($id = null): array
+    {
+        return [];
+    }
 
     /**
      * Search for specific folders.
@@ -27,7 +35,10 @@ interface FolderInterface
      *
      * @return array
      */
-    public static function search($query): array;
+    public static function search($query): array
+    {
+        return [];
+    }
 
     /**
      * Get specific folders.
@@ -36,7 +47,10 @@ interface FolderInterface
      *
      * @return Response
      */
-    public static function find($id): array;
+    public static function find($id): array
+    {
+        return [];
+    }
 
     /**
      * Create folder.
@@ -45,7 +59,10 @@ interface FolderInterface
      *
      * @return array
      */
-    public static function create($name): array;
+    public static function create($name): array
+    {
+        return [];
+    }
 
     /**
      * Update folder.
@@ -55,7 +72,10 @@ interface FolderInterface
      *
      * @return array
      */
-    public static function update($id, $name): array;
+    public static function update($id, $name): array
+    {
+        return [];
+    }
 
     /**
      * Delete a folder.
@@ -64,7 +84,10 @@ interface FolderInterface
      *
      * @return null
      */
-    public static function delete($ids);
+    public static function delete($ids)
+    {
+        return;
+    }
 
     /**
      * Archive a folder.
@@ -73,7 +96,10 @@ interface FolderInterface
      *
      * @return array
      */
-    public static function archive($ids): array;
+    public static function archive($ids): array
+    {
+        return [];
+    }
 
     /**
      * Unarchive a folder.
@@ -82,7 +108,10 @@ interface FolderInterface
      *
      * @return array
      */
-    public static function unarchive($ids): array;
+    public static function unarchive($ids): array
+    {
+        return [];
+    }
 
     /**
      * Duplicate a folder.
@@ -91,5 +120,8 @@ interface FolderInterface
      *
      * @return array
      */
-    public static function duplicate($ids): array;
+    public static function duplicate($ids): array
+    {
+        return [];
+    }
 }

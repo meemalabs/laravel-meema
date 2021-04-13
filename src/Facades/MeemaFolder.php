@@ -3,7 +3,7 @@
 namespace Meema\LaravelMeema\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Meema\LaravelMeema\Contracts\FolderInterface;
+use Meema\LaravelMeema\Models\Folder;
 
 class MeemaFolder extends Facade
 {
@@ -14,6 +14,6 @@ class MeemaFolder extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return FolderInterface::class;
+        return Folder::class;
     }
 }

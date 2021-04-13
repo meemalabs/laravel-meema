@@ -3,7 +3,7 @@
 namespace Meema\LaravelMeema\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Meema\LaravelMeema\Contracts\FavoriteInterface;
+use Meema\LaravelMeema\Models\Favorite;
 
 class MeemaFavorite extends Facade
 {
@@ -14,6 +14,6 @@ class MeemaFavorite extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return FavoriteInterface::class;
+        return Favorite::class;
     }
 }

@@ -3,7 +3,7 @@
 namespace Meema\LaravelMeema\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Meema\LaravelMeema\Contracts\TagInterface;
+use Meema\LaravelMeema\Models\Tag;
 
 class MeemaTag extends Facade
 {
@@ -14,6 +14,6 @@ class MeemaTag extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return TagInterface::class;
+        return Tag::class;
     }
 }

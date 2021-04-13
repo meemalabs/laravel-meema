@@ -1,15 +1,20 @@
 <?php
 
-namespace Meema\LaravelMeema\Contracts;
+namespace Meema\LaravelMeema\Models;
 
-interface TagInterface
+use Meema\LaravelMeema\Contracts\TagInterface;
+
+class Tag implements TagInterface
 {
     /**
      * List all tags.
      *
      * @return array
      */
-    public static function all(): array;
+    public static function all(): array
+    {
+        return [];
+    }
 
     /**
      * Get specific tags.
@@ -18,7 +23,10 @@ interface TagInterface
      *
      * @return array
      */
-    public static function get($ids = null): array;
+    public static function get($ids = null): array
+    {
+        return [];
+    }
 
     /**
      * Get specific tags.
@@ -27,7 +35,10 @@ interface TagInterface
      *
      * @return array
      */
-    public static function find($id): array;
+    public static function find($id): array
+    {
+        return [];
+    }
 
     /**
      * Update a tag color.
@@ -37,7 +48,10 @@ interface TagInterface
      *
      * @return array
      */
-    public static function update($id, $color): array;
+    public static function update($id, $color): array
+    {
+        return [];
+    }
 
     /**
      * Delete tags.
@@ -46,5 +60,8 @@ interface TagInterface
      *
      * @return null
      */
-    public static function delete($ids);
+    public static function delete($ids)
+    {
+        return [];
+    }
 }

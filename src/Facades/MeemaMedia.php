@@ -3,7 +3,7 @@
 namespace Meema\LaravelMeema\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Meema\LaravelMeema\Contracts\MediaInterface;
+use Meema\LaravelMeema\Models\Media;
 
 class MeemaMedia extends Facade
 {
@@ -14,6 +14,6 @@ class MeemaMedia extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return MediaInterface::class;
+        return Media::class;
     }
 }
