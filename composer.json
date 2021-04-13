@@ -18,7 +18,8 @@
         }
     ],
     "require": {
-        "php": "^7.3"
+        "php": "^7.3|^8.0",
+        "meema/meema-client-php": "@dev"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.3",
