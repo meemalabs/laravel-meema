@@ -86,7 +86,7 @@ class Media implements MediaInterface
      */
     public static function delete($ids)
     {
-        return;
+
     }
 
     /**
