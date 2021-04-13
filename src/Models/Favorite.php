@@ -74,6 +74,6 @@ class Favorite implements FavoriteInterface
      */
     public function delete($ids)
     {
-        return;
+
     }
 }
