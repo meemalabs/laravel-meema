@@ -86,7 +86,7 @@ class Folder implements FolderInterface
      */
     public static function delete($ids)
     {
-        return;
+
     }
 
     /**
