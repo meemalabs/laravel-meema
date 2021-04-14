@@ -46,7 +46,7 @@ class MeemaServiceProvider extends ServiceProvider
     }
 
     /**
-     * Registers the Meema SDK Client
+     * Registers the Meema SDK Client.
      *
      * @return void
      */
