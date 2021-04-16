@@ -1,8 +1,8 @@
 <?php
 
+use Meema\LaravelMeema\Facades\Folder;
 use Meema\LaravelMeema\Facades\Media;
 use Meema\LaravelMeema\Facades\Tag;
-use Meema\LaravelMeema\Facades\Folder;
 use Meema\LaravelMeema\Tests\LaravelMeemaTestCase;
 
 uses(LaravelMeemaTestCase::class);
