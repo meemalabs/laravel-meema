@@ -41,10 +41,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+          composer install
 
       - name: Execute tests
         run: vendor/bin/pest
         env:
           MEEMA_API_KEY: ${{ secrets.MEEMA_API_KEY }}
+          BASE_URL_TEST: ${{ secrets.BASE_URL_TEST }}

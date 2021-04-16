@@ -27,5 +27,6 @@ class LaravelMeemaTestCase extends TestCase
     {
         // let's make sure these config values are set
         Config::set('meema.api_key', env('MEEMA_API_KEY'));
+        Config::set('meema.meema_test_url', env('BASE_URL_TEST'));
     }
 }
