@@ -8,7 +8,7 @@ use Orchestra\Testbench\TestCase;
 
 class LaravelMeemaTestCase extends TestCase
 {
-	protected function getPackageProviders($app): array
+    protected function getPackageProviders($app): array
     {
         return [MeemaServiceProvider::class];
     }
