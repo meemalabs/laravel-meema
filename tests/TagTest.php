@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Collection;
 use Meema\LaravelMeema\Facades\Folder;
 use Meema\LaravelMeema\Facades\Media;
 use Meema\LaravelMeema\Facades\Tag;
@@ -15,7 +16,7 @@ beforeEach(function () {
 it('can fetch all tags', function () {
     $tags = Tag::get();
 
-    $this->assertTrue(is_array($tags));
+    $this->assertTrue($tags instanceof Collection);
     $this->assertTrue(count($tags) > 0);
 });
 
@@ -24,7 +25,7 @@ it('can fetch specific group of tags', function () {
 
     $tags = Tag::get($ids);
 
-    $this->assertTrue(is_array($tags));
+    $this->assertTrue($tags instanceof Collection);
     $this->assertTrue(count($tags) === count($ids));
 });
 
@@ -50,7 +51,7 @@ it('can fetch all media tags', function () {
     $media = Media::find(1);
     $tags = $media->tags()->get();
 
-    $this->assertTrue(is_array($tags));
+    $this->assertTrue($tags instanceof Collection);
     $this->assertTrue(count($tags[0]) > 0);
 });
 
@@ -59,12 +60,12 @@ it('can fetch all folder tags', function () {
 
     $tags = $folder->tags()->get();
 
-    $this->assertTrue(is_array($tags));
+    $this->assertTrue($tags instanceof Collection);
     $this->assertTrue(count($tags[0]) > 0);
 });
 
 it('can delete a tag', function () {
-    $tags = Tag::get();
+    $tags = Tag::get()->toArray();
 
     $tags = array_reverse($tags);
     $response = Tag::delete($tags[0]['id']);
