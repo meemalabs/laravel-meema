@@ -21,13 +21,14 @@
     ],
     "require": {
         "php": "^7.2.5 || ^8.0",
-        "meema/meema-client-php": "dev-main"
+        "meema/meema-client-php": "@dev"
     },
     "require-dev": {
         "orchestra/testbench": "^5.0|^6.0",
         "pestphp/pest": "^1.0",
         "pestphp/pest-plugin-laravel": "^1.0",
-        "phpunit/phpunit": "^8.0|^9.3"
+        "phpunit/phpunit": "^8.0|^9.3",
+        "vlucas/phpdotenv": "^4.2|^5.3"
     },
     "autoload": {
         "psr-4": {
@@ -54,6 +55,12 @@
             "aliases": {
                 "Meema": "Meema\\LaravelMeema\\Facades\\MeemaFacade"
             }
+        }
+    },
+    "repositories": {
+        "local": {
+            "type": "path",
+            "url": "../meema-php-sdk"
         }
     }
 }

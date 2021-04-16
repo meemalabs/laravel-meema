@@ -39,7 +39,7 @@ class MeemaServiceProvider extends ServiceProvider
         });
 
         $this->app->bind('meema-favorite', function ($app) {
-            return $app['meema']->favorite();
+            return $app['meema']->favorites();
         });
 
         $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'meema');
