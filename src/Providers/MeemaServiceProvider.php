@@ -55,7 +55,7 @@ class MeemaServiceProvider extends ServiceProvider
         $this->app->singleton('meema', function ($app) {
             $config = [
                 'base_url' => config('meema.meema_test_url'),
-                'to_collection' => config('meema.to_collection')
+                'to_collection' => config('meema.to_collection'),
             ];
 
             return new Client(config('meema.api_key'), $config);
