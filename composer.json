@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^7.2.5 || ^8.0",
-        "meema/meema-client-php": "@dev"
+        "meema/meema-client-php": "dev-main"
     },
     "require-dev": {
         "orchestra/testbench": "^5.0|^6.0",
@@ -55,12 +55,6 @@
             "aliases": {
                 "Meema": "Meema\\LaravelMeema\\Facades\\MeemaFacade"
             }
-        }
-    },
-    "repositories": {
-        "local": {
-            "type": "path",
-            "url": "../meema-php-sdk"
         }
     }
 }

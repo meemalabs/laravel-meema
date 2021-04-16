@@ -8,17 +8,13 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        php: [7.2, 7.3, 7.4, 8.0]
-        laravel: [6.*, 7.*, 8.*]
+        os: [ubuntu-latest]
+        php: [7.3, 7.4, 8.0]
+        laravel: [8.*]
         dependency-version: [prefer-stable]
         include:
           - laravel: 8.*
             testbench: 6.*
-          - laravel: 7.*
-            testbench: 5.*
-          - laravel: 6.*
-            testbench: 4.*
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
@@ -46,3 +42,6 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/pest
+        env:
+          MEEMA_API_KEY: ${{ secrets.MEEMA_API_KEY }}
+          BASE_URL_TEST: ${{ secrets.BASE_URL_TEST }}
