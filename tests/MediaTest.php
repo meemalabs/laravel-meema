@@ -17,7 +17,7 @@ it('can be fetch all media', function () {
     $media = Media::get();
 
     $this->assertTrue($media instanceof Collection);
-    $this->assertTrue(count($media) > 0);
+    $this->assertTrue($media->count() > 0);
 });
 
 it('can search a media', function () {
@@ -37,7 +37,7 @@ it('can be fetch all media for a tag', function () {
     $media = $tag->media()->get();
 
     $this->assertTrue($media instanceof Collection);
-    $this->assertTrue(count($media) > 0);
+    $this->assertTrue($media->count() > 0);
 });
 
 it('can be fetch all media for a folder', function () {
@@ -47,7 +47,7 @@ it('can be fetch all media for a folder', function () {
     $media = $folder->media()->get();
 
     $this->assertTrue($media instanceof Collection);
-    $this->assertTrue(count($media) > 0);
+    $this->assertTrue($media->count() > 0);
 });
 
 it('can be fetch specific group of media', function () {
@@ -56,7 +56,7 @@ it('can be fetch specific group of media', function () {
     $media = Media::get($ids);
 
     $this->assertTrue($media instanceof Collection);
-    $this->assertTrue(count($media) === count($ids));
+    $this->assertTrue($media->count() === count($ids));
 });
 
 it('can find a single media', function () {

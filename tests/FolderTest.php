@@ -15,7 +15,7 @@ it('can fetch all folders', function () {
     $folders = Folder::get();
 
     $this->assertTrue($folders instanceof Collection);
-    $this->assertTrue(count($folders) > 0);
+    $this->assertTrue($folders->count() > 0);
 });
 
 it('can search a folder', function () {
@@ -35,7 +35,7 @@ it('can fetch specific group of folders', function () {
     $folders = Folder::get($ids);
 
     $this->assertTrue($folders instanceof Collection);
-    $this->assertTrue(count($folders) === count($ids));
+    $this->assertTrue($folders->count() === count($ids));
 });
 
 it('can find a single folder', function () {

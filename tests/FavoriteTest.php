@@ -15,7 +15,7 @@ it('can fetch all favorites', function () {
     $favorites = Favorite::get();
 
     $this->assertTrue($favorites instanceof Collection);
-    $this->assertTrue(count($favorites) > 0);
+    $this->assertTrue($favorites->count() > 0);
 });
 
 it('can fetch specific group of favorites', function () {
@@ -24,7 +24,7 @@ it('can fetch specific group of favorites', function () {
     $favorites = Favorite::get($ids);
 
     $this->assertTrue($favorites instanceof Collection);
-    $this->assertTrue(count($favorites) === count($ids));
+    $this->assertTrue($favorites->count() === count($ids));
 });
 
 it('can find a single favorite', function () {

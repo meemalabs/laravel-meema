@@ -17,7 +17,7 @@ it('can fetch all tags', function () {
     $tags = Tag::get();
 
     $this->assertTrue($tags instanceof Collection);
-    $this->assertTrue(count($tags) > 0);
+    $this->assertTrue($tags->count() > 0);
 });
 
 it('can fetch specific group of tags', function () {
@@ -26,7 +26,7 @@ it('can fetch specific group of tags', function () {
     $tags = Tag::get($ids);
 
     $this->assertTrue($tags instanceof Collection);
-    $this->assertTrue(count($tags) === count($ids));
+    $this->assertTrue($tags->count() === count($ids));
 });
 
 it('can find a single tag', function () {
@@ -52,7 +52,7 @@ it('can fetch all media tags', function () {
     $tags = $media->tags()->get();
 
     $this->assertTrue($tags instanceof Collection);
-    $this->assertTrue(count($tags[0]) > 0);
+    $this->assertTrue($tags->count() >= 0);
 });
 
 it('can fetch all folder tags', function () {
