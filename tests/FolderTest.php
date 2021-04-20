@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Collection;
 use Meema\LaravelMeema\Facades\Folder;
 use Meema\LaravelMeema\Tests\LaravelMeemaTestCase;
 
@@ -13,8 +14,8 @@ beforeEach(function () {
 it('can fetch all folders', function () {
     $folders = Folder::get();
 
-    $this->assertTrue(is_array($folders));
-    $this->assertTrue(count($folders) > 0);
+    $this->assertTrue($folders instanceof Collection);
+    $this->assertTrue($folders->count() > 0);
 });
 
 it('can search a folder', function () {
@@ -24,7 +25,7 @@ it('can search a folder', function () {
 
     $folders = Folder::search($query);
 
-    $this->assertTrue(is_array($folders));
+    $this->assertTrue($folders instanceof Collection);
     $this->assertTrue(str_contains($folders[0]['name'], $query));
 });
 
@@ -33,8 +34,8 @@ it('can fetch specific group of folders', function () {
 
     $folders = Folder::get($ids);
 
-    $this->assertTrue(is_array($folders));
-    $this->assertTrue(count($folders) === count($ids));
+    $this->assertTrue($folders instanceof Collection);
+    $this->assertTrue($folders->count() === count($ids));
 });
 
 it('can find a single folder', function () {
@@ -88,7 +89,7 @@ it('can duplicate a folder', function () {
 });
 
 it('can delete a folder', function () {
-    $folders = Folder::get();
+    $folders = Folder::get()->toArray();
 
     $folders = array_reverse($folders);
     $response = Folder::delete($folders[0]['id']);

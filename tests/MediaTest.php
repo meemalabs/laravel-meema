@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Collection;
 use Meema\LaravelMeema\Facades\Folder;
 use Meema\LaravelMeema\Facades\Media;
 use Meema\LaravelMeema\Facades\Tag;
@@ -15,8 +16,8 @@ beforeEach(function () {
 it('can be fetch all media', function () {
     $media = Media::get();
 
-    $this->assertTrue(is_array($media));
-    $this->assertTrue(count($media) > 0);
+    $this->assertTrue($media instanceof Collection);
+    $this->assertTrue($media->count() > 0);
 });
 
 it('can search a media', function () {
@@ -25,7 +26,7 @@ it('can search a media', function () {
 
     $media = Media::search($query);
 
-    $this->assertTrue(is_array($media));
+    $this->assertTrue($media instanceof Collection);
     $this->assertTrue(str_contains($media[0]['name'], $query));
 });
 
@@ -35,8 +36,8 @@ it('can be fetch all media for a tag', function () {
 
     $media = $tag->media()->get();
 
-    $this->assertTrue(is_array($media));
-    $this->assertTrue(count($media) > 0);
+    $this->assertTrue($media instanceof Collection);
+    $this->assertTrue($media->count() > 0);
 });
 
 it('can be fetch all media for a folder', function () {
@@ -45,8 +46,8 @@ it('can be fetch all media for a folder', function () {
 
     $media = $folder->media()->get();
 
-    $this->assertTrue(is_array($media));
-    $this->assertTrue(count($media) > 0);
+    $this->assertTrue($media instanceof Collection);
+    $this->assertTrue($media->count() > 0);
 });
 
 it('can be fetch specific group of media', function () {
@@ -54,8 +55,8 @@ it('can be fetch specific group of media', function () {
 
     $media = Media::get($ids);
 
-    $this->assertTrue(is_array($media));
-    $this->assertTrue(count($media) === count($ids));
+    $this->assertTrue($media instanceof Collection);
+    $this->assertTrue($media->count() === count($ids));
 });
 
 it('can find a single media', function () {
@@ -114,7 +115,7 @@ it('can duplicate a media', function () {
 });
 
 it('can delete a media', function () {
-    $media = Media::get();
+    $media = Media::get()->toArray();
 
     $media = array_reverse($media);
     $response = Media::delete((int) $media[0]['media_id']);

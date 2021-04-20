@@ -53,7 +53,10 @@ class MeemaServiceProvider extends ServiceProvider
     protected function registerMeemaClient()
     {
         $this->app->singleton('meema', function ($app) {
-            $config = ['base_url' => config('meema.meema_test_url')];
+            $config = [
+                'base_url' => config('meema.meema_test_url'),
+                'to_collection' => config('meema.to_collection'),
+            ];
 
             return new Client(config('meema.api_key'), $config);
         });

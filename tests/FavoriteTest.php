@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Collection;
 use Meema\LaravelMeema\Facades\Favorite;
 use Meema\LaravelMeema\Tests\LaravelMeemaTestCase;
 
@@ -13,8 +14,8 @@ beforeEach(function () {
 it('can fetch all favorites', function () {
     $favorites = Favorite::get();
 
-    $this->assertTrue(is_array($favorites));
-    $this->assertTrue(count($favorites) > 0);
+    $this->assertTrue($favorites instanceof Collection);
+    $this->assertTrue($favorites->count() > 0);
 });
 
 it('can fetch specific group of favorites', function () {
@@ -22,8 +23,8 @@ it('can fetch specific group of favorites', function () {
 
     $favorites = Favorite::get($ids);
 
-    $this->assertTrue(is_array($favorites));
-    $this->assertTrue(count($favorites) === count($ids));
+    $this->assertTrue($favorites instanceof Collection);
+    $this->assertTrue($favorites->count() === count($ids));
 });
 
 it('can find a single favorite', function () {
@@ -54,7 +55,7 @@ it('can update a favorite', function () {
 });
 
 it('can delete a favorite', function () {
-    $favorites = Favorite::get();
+    $favorites = Favorite::get()->toArray();
 
     $favorites = array_reverse($favorites);
     $response = Favorite::delete($favorites[0]['id']);
