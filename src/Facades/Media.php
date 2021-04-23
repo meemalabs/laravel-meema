@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static tags($id = null)
  * @method static function getId()
  *
- * @see \Meema\MeemaApi\Models\Media
+ * @see \Meema\MeemaClient\Models\Media
  */
 class Media extends Facade
 {

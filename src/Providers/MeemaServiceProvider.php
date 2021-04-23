@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
 use Meema\Flysystem\MeemaAdapter;
-use Meema\MeemaApi\Client as MeemaClient;
+use Meema\MeemaClient\Client as MeemaClient;
 
 class MeemaServiceProvider extends ServiceProvider
 {
@@ -69,7 +69,7 @@ class MeemaServiceProvider extends ServiceProvider
                 'to_collection' => config('meema.to_collection'),
             ];
 
-            return new Client(config('meema.api_key'), $config);
+            return new MeemaClient(config('meema.api_key'), $config);
         });
     }
 }
