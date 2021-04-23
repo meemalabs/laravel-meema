@@ -4,9 +4,9 @@ namespace Meema\LaravelMeema\Providers;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
+use League\Flysystem\Filesystem;
 use Meema\Flysystem\MeemaAdapter;
 use Meema\MeemaApi\Client as MeemaClient;
-use League\Flysystem\Filesystem;
 
 class MeemaServiceProvider extends ServiceProvider
 {
