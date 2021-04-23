@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static folders($id = null)
  * @method static function getId()
  *
- * @see \Meema\MeemaApi\Models\Tag
+ * @see \Meema\MeemaClient\Models\Tag
  */
 class Tag extends Facade
 {

@@ -2,8 +2,11 @@
 
 namespace Meema\LaravelMeema\Providers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
-use Meema\MeemaApi\Client;
+use League\Flysystem\Filesystem;
+use Meema\Flysystem\MeemaAdapter;
+use Meema\MeemaClient\Client as MeemaClient;
 
 class MeemaServiceProvider extends ServiceProvider
 {
@@ -17,6 +20,14 @@ class MeemaServiceProvider extends ServiceProvider
                 __DIR__.'/../../config/config.php' => config_path('meema.php'),
             ], 'config');
         }
+
+        Storage::extend('meema', function ($app, $config) {
+            $client = new MeemaClient(
+                $config['meema_api_key']
+            );
+
+            return new Filesystem(new MeemaAdapter($client));
+        });
     }
 
     /**
@@ -58,7 +69,7 @@ class MeemaServiceProvider extends ServiceProvider
                 'to_collection' => config('meema.to_collection'),
             ];
 
-            return new Client(config('meema.api_key'), $config);
+            return new MeemaClient(config('meema.api_key'), $config);
         });
     }
 }

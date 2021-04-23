@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static function tags()
  * @method static function favorites()
  *
- * @see \Meema\MeemaApi\Client
+ * @see \Meema\MeemaClient\Client
  */
 class Meema extends Facade
 {

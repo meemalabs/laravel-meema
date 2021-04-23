@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static function update($id, $name)
  * @method static function delete($ids)
  *
- * @see \Meema\MeemaApi\Models\Favorite
+ * @see \Meema\MeemaClient\Models\Favorite
  */
 class Favorite extends Facade
 {

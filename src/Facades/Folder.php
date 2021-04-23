@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static media($id = null)
  * @method static tags($id = null)
  *
- * @see \Meema\MeemaApi\Models\Folder
+ * @see \Meema\MeemaClient\Models\Folder
  */
 class Folder extends Facade
 {
