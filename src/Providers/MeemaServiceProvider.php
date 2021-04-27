@@ -23,7 +23,7 @@ class MeemaServiceProvider extends ServiceProvider
 
         Storage::extend('meema', function ($app, $config) {
             $client = new MeemaClient(
-                $config['meema.api_secret_key']
+                $config['api_secret_key']
             );
 
             return new Filesystem(new MeemaAdapter($client));
