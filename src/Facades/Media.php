@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static function makePrivate($ids)
  * @method static function makePublic($ids)
  * @method static function duplicate($ids)
- * @method static folders($id = null)
- * @method static tags($id = null)
+ * @method static function folders($id = null)
+ * @method static function tags($id = null)
  * @method static function getId()
  *
  * @see \Meema\MeemaClient\Models\Media
