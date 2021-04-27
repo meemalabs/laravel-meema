@@ -7,7 +7,8 @@ return [
     'api_key' => env('MEEMA_API_KEY', ''),
 
     /*
-     * If you want to convert all response to a collection
+     * If you prefer to not work with a collections, you may set this
+     * value to false and there will be an array response.
      */
     'to_collection' => env('MEEMA_API_TO_COLLECTION', true),
 ];
