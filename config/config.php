@@ -9,11 +9,11 @@ return [
     /*
      * The publishable API key provided by the meema API
      */
-    'api_secret_key' => env('MEEMA_API_SECRET', ''),
+    'api_secret' => env('MEEMA_API_SECRET', ''),
 
     /*
-     * If you prefer to not work with a collections, you may set this
+     * If you prefer to not work with collections, you may set this
      * value to false and there will be an array response.
      */
-    'to_collection' => env('MEEMA_API_TO_COLLECTION', true),
+    'to_collection' => env('MEEMA_API_COLLECTION', true),
 ];
