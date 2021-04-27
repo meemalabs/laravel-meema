@@ -23,7 +23,7 @@ class MeemaServiceProvider extends ServiceProvider
 
         Storage::extend('meema', function ($app, $config) {
             $client = new MeemaClient(
-                $config['meema_api_key']
+                $config['meema.secret_api_key']
             );
 
             return new Filesystem(new MeemaAdapter($client));
@@ -37,6 +37,18 @@ class MeemaServiceProvider extends ServiceProvider
     {
         $this->registerMeemaClient();
 
+        $this->bindModels();
+
+        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'meema');
+    }
+
+    /**
+     * Registers the Meema SDK Client Models.
+     *
+     * @return void
+     */
+    public function bindModels()
+    {
         $this->app->bind('meema-media', function ($app) {
             return $app['meema']->media();
         });
@@ -53,7 +65,13 @@ class MeemaServiceProvider extends ServiceProvider
             return $app['meema']->favorites();
         });
 
-        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'meema');
+        $this->app->bind('meema-image', function ($app) {
+            return $app['meema']->image();
+        });
+
+        $this->app->bind('meema-video', function ($app) {
+            return $app['meema']->video();
+        });
     }
 
     /**
