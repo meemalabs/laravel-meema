@@ -12,6 +12,11 @@ return [
     'api_secret' => env('MEEMA_API_SECRET', ''),
 
     /*
+     * The publishable API key provided by the meema API
+     */
+    'base_url' => env('MEEMA_BASE_URL', ''),
+
+    /*
      * If you prefer to not work with collections, you may set this
      * value to false and there will be an array response.
      */
