@@ -81,7 +81,7 @@ Favorite::get();
 Tags::get();
 ```
 
-You can optionally publish the config file with:
+Next, publish the config file with:
 
 ```bash
 php artisan vendor:publish --provider="Meema\LaravelMeema\Providers\MeemaServiceProvider" --tag="config"
