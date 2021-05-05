@@ -92,7 +92,7 @@ $tag->delete();
 $tag->media()->get();
 ```
 
-Using the `Favorite` facade.
+Using the `Favorite` facade
 ```php
 Favorite::create(['name' => 'New Favorite Name', 'icon' => 'favorite-icon']);
 Favorite::get();
