@@ -48,7 +48,9 @@ it('can update a tag', function () {
 });
 
 it('can fetch all media tags', function () {
-    $media = Media::find(1);
+    $allMedia = Media::get();
+
+    $media = Media::find($allMedia[0]['id']);
     $tags = $media->tags()->get();
 
     $this->assertTrue($tags instanceof Collection);
@@ -56,7 +58,9 @@ it('can fetch all media tags', function () {
 });
 
 it('can fetch all folder tags', function () {
-    $folder = Folder::find(1);
+    $folders = Folder::get();
+
+    $folder = Folder::find($folders[0]['id']);
 
     $tags = $folder->tags()->get();
 
