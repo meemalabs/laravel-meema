@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static function nsfw($value)
  * @method static function bg($value)
  * @method static function ar($value)
- * @method static function br($value)
+ * @method static function bri($value)
  * @method static function hue($value)
  * @method static function sat($value)
  * @method static function sharp($value)
