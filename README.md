@@ -12,73 +12,100 @@ composer require meema/laravel-meema
 
 ## Usage
 
-using the Meema class
+using the `Media` facade
 
 ``` php
-use Meema\LaravelMeema\Facades\Meema
+use Meema\LaravelMeema\Facades\Media;
 
-Meema::media()->get();
-Meema::folders()->get();
-Meema::tags()->get();
-Meema::favorites()->get();
-Meema::storage()->upload($path);
+Media::create('New media name');
+Media::get();
 
-Meema::media()->get(1,2,3);
-Meema::folders()->get(1,2,3);
-Meema::tags()->get(1,2,3);
-Meema::favorites()->get(1,2,3);
+// Specific uuids
+Media::get('11a283ed-a64e-424a-aefc-6aa98971d529', '1556fcb8-693e-4431-8b16-3b2b7bb8fcc7');
+Media::search('media-name');
 
-Meema::media()->delete(1,2,3);
-Meema::folders()->delete(1,2,3);
-Meema::tags()->delete(1,2,3);
-Meema::favorites()->delete(1,2,3);
+// This will return a `Response` instance
+$media = Media::find('11a283ed-a64e-424a-aefc-6aa98971d529');
 
-Meema::media()->update(1, $data);
-Meema::folders()->update(1, $data);
-Meema::tags()->update(1, $data);
-Meema::favorites()->update(1, $data);
-
-$media = Meema::media()->find(1);
-$folder = Meema::folders()->find(1);
-$tag = Meema::tags()->find(1);
-$favorite = Meema::favorites()->find(1);
-
-// You can then chain after the find method
+// So that you can chain other methods that require an id.
+$media->update('updated-media-name')
 $media->delete();
-$media->update($data);
+$media->archive();
+$media->unarchive();
+$media->makePrivate();
+$media->makePublic();
+$media->duplicate();
+
+// Relationships with other models.
+// Continuing with the chaining methods we used earlier.
 $media->folders()->get();
+$media->folders()->create('New folder name');
+$media->folders()->delete('11a283ed-a64e-424a-aefc-6aa98971d529');
 $media->tags()->get();
-
-$folder->delete();
-$folder->update($data);
-$folder->media()->get();
-$folder->tags()->get();
-
-$tag->delete();
-$tag->update($data);
-$favorite->delete();
-$favorite->update($data);
-
-// If you just want to get the array response
-$media->toArray();
-$folder->toArray();
-$tag->toArray();
-$favorite->toArray();
+$media->tags()->associate(['name' => 'Tag Name']);
+$media->tags()->disassociate(['name' => 'Tag Name']);
 ```
-
-You can also use the specific Models
+Using the `Folder` facade
 
 ```php
-use Meema\LaravelMeema\Facades\Media;
 use Meema\LaravelMeema\Facades\Folder;
-use Meema\LaravelMeema\Facades\Favorite;
-use Meema\LaravelMeema\Facades\Tags;
 
-// You can then use the models as such, and you can use the functions used above.
-Media::get();
+Folder::create('New folder name');
 Folder::get();
+
+// Specific uuids
+Folder::get('11a283ed-a64e-424a-aefc-6aa98971d529', '1556fcb8-693e-4431-8b16-3b2b7bb8fcc7');
+Folder::search('folder-name');
+
+// This will return a Response instance
+$folder = Folder::find('11a283ed-a64e-424a-aefc-6aa98971d529');
+
+// So that you can chain other methods that require an id.
+$folder->update('updated-folder-name')
+$folder->delete();
+$folder->archive();
+$folder->unarchive();
+$folder->duplicate();
+
+// Relationships with other models.
+// Continuing with the chaining methods we used earlier.
+$folder->media()->get();
+$folder->tags()->get();
+$folder->tags()->associate(['tag_id' => 7]);
+$folder->tags()->disassociate(['tag_id' => 7]);
+```
+
+Using the `Tag` facade
+
+```php
+Tag::get();
+
+// Specific ids
+Tag::get(1, 2, 3);
+
+// This will return a Response instance
+$tag = Tag::find(1);
+
+// So that you can chain other methods that require an id.
+$tag->update('red-500'); // You will have to use tailwind CSS color palletes.
+$tag->delete();
+$tag->media()->get();
+```
+
+Using the `Favorite` facade.
+```php
+Favorite::create(['name' => 'New Favorite Name', 'icon' => 'favorite-icon']);
 Favorite::get();
-Tags::get();
+
+// Specific ids
+Favorite::get(1,2,3);
+
+// This will return a Response instance
+$favorite = $client->favorites()->find(1);
+
+// So that you can chain other methods that require an id.
+$favorite->update(['name' => 'Updated Favorite Name', 'icon' => 'updated-favorite-icon']);
+$favorite->delete();
 ```
 
 Next, publish the config file with:
