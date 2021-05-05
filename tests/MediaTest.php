@@ -21,7 +21,9 @@ it('can be fetch all media', function () {
 });
 
 it('can search a media', function () {
-    $media = Media::find(1)->toArray();
+    $allMedia = Media::get();
+
+    $media = Media::find($allMedia[0]['id'])->toArray();
     $query = $media['name'];
 
     $media = Media::search($query);
@@ -41,8 +43,10 @@ it('can be fetch all media for a tag', function () {
 });
 
 it('can be fetch all media for a folder', function () {
+    $folders = Folder::get();
+
     // 8 is the tag id for images
-    $folder = Folder::find(1);
+    $folder = Folder::find($folders[0]['id']);
 
     $media = $folder->media()->get();
 
@@ -51,7 +55,9 @@ it('can be fetch all media for a folder', function () {
 });
 
 it('can be fetch specific group of media', function () {
-    $ids = [1, 2, 3];
+    $allMedia = Media::get();
+
+    $ids = [$allMedia[0]['id'], $allMedia[1]['id'], $allMedia[2]['id']];
 
     $media = Media::get($ids);
 
@@ -60,55 +66,69 @@ it('can be fetch specific group of media', function () {
 });
 
 it('can find a single media', function () {
-    $id = 1;
+    $allMedia = Media::get();
 
-    $media = Media::find(1)->toArray();
+    $id = $allMedia[0]['id'];
+
+    $media = Media::find($id)->toArray();
 
     $this->assertTrue(is_array($media));
     $this->assertTrue(array_key_exists('id', $media));
 });
 
 it('can update a media', function () {
+    $allMedia = Media::get();
+
     $name = 'test media';
 
-    $media = Media::update(1, $name);
+    $media = Media::update($allMedia[0]['id'], $name);
 
     $this->assertTrue(is_array($media));
     $this->assertTrue($media['name'] === $name);
 });
 
 it('can archive a media', function () {
-    $media = Media::archive(1);
+    $allMedia = Media::get();
+
+    $media = Media::archive($allMedia[0]['id']);
 
     $this->assertTrue(is_array($media));
     $this->assertTrue((bool) $media['is_archived']);
 });
 
 it('can unarchive a media', function () {
-    $media = Media::unarchive(1);
+    $allMedia = Media::get();
+
+    $media = Media::unarchive($allMedia[0]['id']);
 
     $this->assertTrue(is_array($media));
     $this->assertFalse((bool) $media['is_archived']);
 });
 
 it('can make a media private', function () {
-    $media = Media::makePrivate(1);
+    $allMedia = Media::get();
+
+    $media = Media::makePrivate($allMedia[0]['id']);
 
     $this->assertTrue(is_array($media));
     $this->assertFalse((bool) $media['is_public']);
 });
 
 it('can make a media public', function () {
-    $media = Media::makePublic(1);
+    $allMedia = Media::get();
+
+    $media = Media::makePublic($allMedia[0]['id']);
 
     $this->assertTrue(is_array($media));
     $this->assertTrue((bool) $media['is_public']);
 });
 
 it('can duplicate a media', function () {
-    $media = Media::find(1);
+    $allMedia = Media::get();
 
-    $duplicated = Media::duplicate(1);
+    $media = Media::find($allMedia[0]['id']);
+
+    $duplicated = Media::duplicate($allMedia[0]['id']);
 
     $this->assertTrue(is_array($duplicated));
     $this->assertTrue($duplicated['name'] === $media->toArray()['name']);
@@ -118,7 +138,7 @@ it('can delete a media', function () {
     $media = Media::get()->toArray();
 
     $media = array_reverse($media);
-    $response = Media::delete((int) $media[0]['media_id']);
+    $response = Media::delete($media[0]['id']);
 
     $this->assertTrue(is_null($response));
 });

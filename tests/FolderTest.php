@@ -19,7 +19,9 @@ it('can fetch all folders', function () {
 });
 
 it('can search a folder', function () {
-    $folder = Folder::find(1)->toArray();
+    $folders = Folder::get();
+
+    $folder = Folder::find($folders[0]['id'])->toArray();
 
     $query = $folder['name'];
 
@@ -30,7 +32,9 @@ it('can search a folder', function () {
 });
 
 it('can fetch specific group of folders', function () {
-    $ids = [1, 2, 3];
+    $folders = Folder::get();
+
+    $ids = [$folders[0]['id'], $folders[1]['id'], $folders[2]['id']];
 
     $folders = Folder::get($ids);
 
@@ -39,9 +43,11 @@ it('can fetch specific group of folders', function () {
 });
 
 it('can find a single folder', function () {
-    $id = 1;
+    $folders = Folder::get();
 
-    $folders = Folder::find(1)->toArray();
+    $id = $folders[0]['id'];
+
+    $folders = Folder::find($id)->toArray();
 
     $this->assertTrue(is_array($folders));
     $this->assertTrue(array_key_exists('id', $folders));
@@ -57,30 +63,38 @@ it('can create a folder', function () {
 });
 
 it('can update a folder', function () {
+    $folders = Folder::get();
+
     $name = 'test folder';
 
-    $folders = Folder::update(1, $name);
+    $folders = Folder::update($folders[0]['id'], $name);
 
     $this->assertTrue(is_array($folders));
     $this->assertTrue($folders['name'] === $name);
 });
 
 it('can archive a folder', function () {
-    $folders = Folder::archive(1);
+    $folders = Folder::get();
+
+    $folders = Folder::archive($folders[0]['id']);
 
     $this->assertTrue(is_array($folders));
     $this->assertTrue((bool) $folders['is_archived']);
 });
 
 it('can unarchive a folder', function () {
-    $folders = Folder::unarchive(1);
+    $folders = Folder::get();
+
+    $folders = Folder::unarchive($folders[0]['id']);
 
     $this->assertTrue(is_array($folders));
     $this->assertFalse((bool) $folders['is_archived']);
 });
 
 it('can duplicate a folder', function () {
-    $folders = Folder::find(1);
+    $folders = Folder::get();
+
+    $folders = Folder::find($folders[0]['id']);
 
     $duplicated = $folders->duplicate();
 
