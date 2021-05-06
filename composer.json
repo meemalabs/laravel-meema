@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^7.2.5 || ^8.0",
-        "meema/flysystem-meema": "@dev",
+        "meema/flysystem-meema": "dev-main",
         "meema/meema-client-php": "dev-main"
     },
     "require-dev": {
