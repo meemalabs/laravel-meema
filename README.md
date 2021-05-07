@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://meema.io">
-    <img alt="Meema for PHP" src="https://raw.githubusercontent.com/meema/meemasearch-client-common/master/banners/php.png" >
+    <img alt="Meema for Laravel" src="https://raw.githubusercontent.com/meema/meemasearch-client-common/master/banners/php.png" >
   </a>
 
 <h4 align="center">The most simple way to integrate <a href="https://meema.io" target="_blank">Meema</a> and your Laravel project</h4>
@@ -45,14 +45,14 @@ use Meema\LaravelMeema\Facades\Media;
 Media::create('New media name');
 Media::get();
 
-// Specific uuids
+// specific uuids
 Media::get('11a283ed-a64e-424a-aefc-6aa98971d529', '1556fcb8-693e-4431-8b16-3b2b7bb8fcc7');
 Media::search('media-name');
 
-// This will return a `Response` instance
+// this will return a Response instance
 $media = Media::find('11a283ed-a64e-424a-aefc-6aa98971d529');
 
-// So that you can chain other methods that require an id.
+// you may chain other methods that require an id
 $media->update('updated-media-name')
 $media->delete();
 $media->archive();
@@ -80,14 +80,14 @@ use Meema\LaravelMeema\Facades\Folder;
 Folder::create('New folder name');
 Folder::get();
 
-// Specific uuids
+// specific uuids
 Folder::get('11a283ed-a64e-424a-aefc-6aa98971d529', '1556fcb8-693e-4431-8b16-3b2b7bb8fcc7');
 Folder::search('folder-name');
 
-// This will return a Response instance
+// this will return a Response instance
 $folder = Folder::find('11a283ed-a64e-424a-aefc-6aa98971d529');
 
-// So that you can chain other methods that require an id.
+// you may chain other methods that require an id
 $folder->update('updated-folder-name')
 $folder->delete();
 $folder->archive();
@@ -108,13 +108,13 @@ Using the `Tag` facade:
 ```php
 Tag::get();
 
-// Specific ids
+// specific uuids
 Tag::get(1, 2, 3);
 
-// This will return a Response instance
+// this will return a Response instance
 $tag = Tag::find(1);
 
-// So that you can chain other methods that require an id.
+// you may chain other methods that require an id
 $tag->update('red-500'); // You will have to use tailwind CSS color palletes.
 $tag->delete();
 $tag->media()->get();
@@ -126,13 +126,13 @@ Using the `Favorite` facade:
 Favorite::create(['name' => 'New Favorite Name', 'icon' => 'favorite-icon']);
 Favorite::get();
 
-// Specific ids
-Favorite::get(1,2,3);
+// specific uuids
+Favorite::get('11a283ed-a64e-424a-aefc-6aa98971d529', '1556fcb8-693e-4431-8b16-3b2b7bb8fcc7');
 
-// This will return a Response instance
+// this will return a Response instance
 $favorite = $client->favorites()->find(1);
 
-// So that you can chain other methods that require an id.
+// you may chain other methods that require an id
 $favorite->update(['name' => 'Updated Favorite Name', 'icon' => 'updated-favorite-icon']);
 $favorite->delete();
 ```
