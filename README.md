@@ -21,23 +21,27 @@
     <a href="https://discord.meema.io" target="_blank">Discord</a>
 </p>
 
-## Installation
+## 🐑 Features
 
-You can install the package via composer:
+- Most simple way to implement a fully-functional media management system & more
+- Thin, minimal & fast package to interact with Meema's API
+- Supports PHP `^7.*`
+
+## 💡 Usage
+
+First, install Meema Laravel Client via the [composer](https://getcomposer.org/) package manager:
 
 ```bash
 composer require meema/laravel-meema
 ```
 
-## Usage
-
-First, you may want to publish the config file with:
+Next, you may want to publish the config file with:
 
 ```bash
 php artisan vendor:publish --provider="Meema\LaravelMeema\Providers\MeemaServiceProvider" --tag="config"
 ```
 
-Now, you may easily interact with your "media items" using the `Media` facade:
+Now, you can easily interact with your "media items" using the `Media` facade:
 
 ``` php
 use Meema\LaravelMeema\Facades\Media;
@@ -137,29 +141,33 @@ $favorite->update(['name' => 'Updated Favorite Name', 'icon' => 'updated-favorit
 $favorite->delete();
 ```
 
-## Testing
+## 🧪 Testing
 
 ``` bash
 ./vendor/bin/pest
 ```
 
-## Changelog
+## 📈 Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Contributing
+## 💪🏼 Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## Security
+## ❓ Troubleshooting
+
+Encountering an issue? Before reaching out to support, we recommend heading to our [FAQ](https://docs.meema.io/) where you will find answers for the most commonly asked about questions/issues and gotchas with this Meema client. Feel free to join our Discord channel, we & the community can help this way as well.
+
+## 🚨 Security
 
 If you discover any security related issues, please email chris@cion.agency instead of using the issue tracker.
 
-## Credits
+## 🙏🏼 Credits
 
 - [Chris Breuer](https://github.com/Chris1904)
 - [All Contributors](../../contributors)
 
-## License
+## 📄 License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
