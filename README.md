@@ -1,6 +1,25 @@
-# Laravel Meema
+<p align="center">
+  <a href="https://meema.io">
+    <img alt="Meema for PHP" src="https://raw.githubusercontent.com/meema/meemasearch-client-common/master/banners/php.png" >
+  </a>
 
-Coming soon. This package is under current work in progress and it will be a wrapper around Meema's API.
+<h4 align="center">The most simple way to integrate <a href="https://meema.io" target="_blank">Meema</a> and your Laravel project</h4>
+
+<p align="center">
+    <a href="https://scrutinizer-ci.com/g/meemalabs/meema-client-php/badges/quality-score.png?b=main"><img src="https://scrutinizer-ci.com/g/meemalabs/meema-client-php/badges/quality-score.png?b=main" alt="Scrutinizer" /></a>
+    <a href="https://packagist.org/packages/meema/laravel-meema"><img src="https://poser.pugx.org/meema/laravel-meema/d/total.svg" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/meema/laravel-meema"><img src="https://poser.pugx.org/meema/laravel-meema/v/stable.svg" alt="Latest Version"></a>
+    <a href="https://packagist.org/packages/meema/laravel-meema"><img src="https://poser.pugx.org/meema/laravel-meema/license.svg" alt="License"></a>
+</p>
+
+<p align="center">
+    <a href="https://docs.meema.io" target="_blank">Documentation</a>  •
+    <a href="https://github.com/meemalabs/meema-client-php" target="_blank">PHP Client</a>  •
+    <a href="http://stackoverflow.com/questions/tagged/meema" target="_blank">Stack Overflow</a>  •
+    <a href="https://github.com/meemalabs/laravel-meema/issues" target="_blank">Report a bug</a>  •
+    <a href="https://docs.meema.io" target="_blank">FAQ</a>  •
+    <a href="https://discord.meema.io" target="_blank">Discord</a>
+</p>
 
 ## Installation
 
@@ -12,7 +31,13 @@ composer require meema/laravel-meema
 
 ## Usage
 
-using the `Media` facade
+First, you may want to publish the config file with:
+
+```bash
+php artisan vendor:publish --provider="Meema\LaravelMeema\Providers\MeemaServiceProvider" --tag="config"
+```
+
+Now, you may easily interact with your "media items" using the `Media` facade:
 
 ``` php
 use Meema\LaravelMeema\Facades\Media;
@@ -45,7 +70,9 @@ $media->tags()->get();
 $media->tags()->associate(['name' => 'Tag Name']);
 $media->tags()->disassociate(['name' => 'Tag Name']);
 ```
-Using the `Folder` facade
+
+Using the `Folder` facade:
+
 
 ```php
 use Meema\LaravelMeema\Facades\Folder;
@@ -75,7 +102,8 @@ $folder->tags()->associate(['tag_id' => 7]);
 $folder->tags()->disassociate(['tag_id' => 7]);
 ```
 
-Using the `Tag` facade
+Using the `Tag` facade:
+
 
 ```php
 Tag::get();
@@ -92,7 +120,8 @@ $tag->delete();
 $tag->media()->get();
 ```
 
-Using the `Favorite` facade
+Using the `Favorite` facade:
+
 ```php
 Favorite::create(['name' => 'New Favorite Name', 'icon' => 'favorite-icon']);
 Favorite::get();
@@ -106,12 +135,6 @@ $favorite = $client->favorites()->find(1);
 // So that you can chain other methods that require an id.
 $favorite->update(['name' => 'Updated Favorite Name', 'icon' => 'updated-favorite-icon']);
 $favorite->delete();
-```
-
-Next, publish the config file with:
-
-```bash
-php artisan vendor:publish --provider="Meema\LaravelMeema\Providers\MeemaServiceProvider" --tag="config"
 ```
 
 ## Testing
