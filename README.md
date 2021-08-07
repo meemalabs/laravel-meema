@@ -21,7 +21,7 @@
     <a href="https://discord.meema.io" target="_blank">Discord</a>
 </p>
 
-## 🐑 Features
+## 🐙 Features
 
 - Most simple way to implement a fully-functional media management system & more
 - Thin, minimal & fast package to interact with Meema's API
@@ -43,7 +43,7 @@ php artisan vendor:publish --provider="Meema\LaravelMeema\Providers\MeemaService
 
 Now, you can easily interact with your "media items" using the `Media` facade:
 
-``` php
+```php
 use Meema\LaravelMeema\Facades\Media;
 
 Media::create('New media name');
@@ -77,7 +77,6 @@ $media->tags()->disassociate(['name' => 'Tag Name']);
 
 Using the `Folder` facade:
 
-
 ```php
 use Meema\LaravelMeema\Facades\Folder;
 
@@ -107,7 +106,6 @@ $folder->tags()->disassociate(['tag_id' => 7]);
 ```
 
 Using the `Tag` facade:
-
 
 ```php
 Tag::get();
@@ -149,15 +147,21 @@ $favorite->delete();
 
 ## 📈 Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see our [releases](https://github.com/meemalabs/laravel-meema/releases) page for more information on what has changed recently.
 
 ## 💪🏼 Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
-## ❓ Troubleshooting
+## 🏝 Community
 
-Encountering an issue? Before reaching out to support, we recommend heading to our [FAQ](https://docs.meema.io/) where you will find answers for the most commonly asked about questions/issues and gotchas with this Meema client. Feel free to join our Discord channel, we & the community can help this way as well.
+For help, discussion about best practices, or any other conversation that would benefit from being searchable:
+
+[Laravel Meema on GitHub](https://github.com/meemalabs/laravel-meema/discussions)
+
+For casual chit-chat with others using this package:
+
+[Join the Meema Discord Server](https://discord.meema.io)
 
 ## 🚨 Security
 
@@ -170,4 +174,4 @@ If you discover any security related issues, please email [security@meema.io](se
 
 ## 📄 License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
