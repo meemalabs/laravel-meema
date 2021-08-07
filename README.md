@@ -15,7 +15,6 @@
 <p align="center">
     <a href="https://docs.meema.io" target="_blank">Documentation</a>  •
     <a href="https://github.com/meemalabs/meema-client-php" target="_blank">PHP Client</a>  •
-    <a href="http://stackoverflow.com/questions/tagged/meema" target="_blank">Stack Overflow</a>  •
     <a href="https://github.com/meemalabs/laravel-meema/issues" target="_blank">Report a bug</a>  •
     <a href="https://docs.meema.io" target="_blank">FAQ</a>  •
     <a href="https://discord.meema.io" target="_blank">Discord</a>
@@ -165,7 +164,7 @@ For casual chit-chat with others using this package:
 
 ## 🚨 Security
 
-If you discover any security related issues, please email [security@meema.io](security@meema.io) instead of using the issue tracker.
+Please review [our security policy](https://github.com/meemalabs/laravel-meema/security/policy) on how to report security vulnerabilities.
 
 ## 🙏🏼 Credits
 
