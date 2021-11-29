@@ -116,7 +116,7 @@ Tag::get(1, 2, 3);
 $tag = Tag::find(1);
 
 // you may chain other methods that require an id
-$tag->update('red-500'); // You will have to use tailwind CSS color palletes.
+$tag->update('red-500'); // You will have to use tailwind CSS color palettes.
 $tag->delete();
 $tag->media()->get();
 ```
