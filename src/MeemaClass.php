@@ -15,7 +15,7 @@ class MeemaClass
     /**
      * Friendly welcome.
      *
-     * @param string $phrase Phrase to return
+     * @param  string  $phrase  Phrase to return
      * @return string Returns the phrase passed in
      */
     public function echoPhrase($phrase)
